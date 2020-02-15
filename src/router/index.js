@@ -129,6 +129,33 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
+  {
+    path: '/image',
+    component: Layout,
+    meta: {
+      title: '图片管理',
+      icon: 'table',
+      roles: ['admin']
+    },
+    children: [
+      {
+        path: '/image/allImage',
+        component: () => import('@/views/image/allImage'),
+        meta: {
+          title: '全部图片',
+          roles: ['admin']
+        }
+      },
+      {
+        path: '/image/myImage',
+        component: () => import('@/views/image/myImage'),
+        meta: {
+          title: '我的图片',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
   // {
   //   path: '/permission',
   //   component: Layout,
@@ -171,18 +198,18 @@ export const asyncRoutes = [
   //   ]
   // },
 
-  // {
-  //   path: '/icon',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/icons/index'),
-  //       name: 'Icons',
-  //       meta: { title: 'Icons', icon: 'icon', noCache: true }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/icon',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/icons/index'),
+        name: 'Icons',
+        meta: { title: 'Icons', icon: 'icon', noCache: true }
+      }
+    ]
+  },
 
   /** when your routing map is too long, you can split it into small modules **/
   // componentsRouter,

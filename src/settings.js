@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'shenzjd.com',
+  title: '神族九帝图床',
 
   /**
    * @type {boolean} true | false
